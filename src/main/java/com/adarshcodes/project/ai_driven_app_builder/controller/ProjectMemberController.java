@@ -2,6 +2,7 @@ package com.adarshcodes.project.ai_driven_app_builder.controller;
 
 import com.adarshcodes.project.ai_driven_app_builder.dto.member.InviteMemberRequest;
 import com.adarshcodes.project.ai_driven_app_builder.dto.member.MemberResponse;
+import com.adarshcodes.project.ai_driven_app_builder.dto.member.UpdateMemberRoleRequest;
 import com.adarshcodes.project.ai_driven_app_builder.entity.ProjectMember;
 import com.adarshcodes.project.ai_driven_app_builder.service.ProjectMemberService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class ProjectMemberController {
     private final ProjectMemberService projectMemberService;
 
     @GetMapping
-    public ResponseEntity<List<ProjectMember>> getProjectMembers(@PathVariable Long projectId) {
+    public ResponseEntity<List<MemberResponse>> getProjectMembers(@PathVariable Long projectId) {
         Long userId = 1L;
         return ResponseEntity.ok(projectMemberService.getProjectMembers(projectId, userId));
     }
@@ -39,14 +40,14 @@ public class ProjectMemberController {
     public ResponseEntity<MemberResponse> updateMemberRole(
             @PathVariable Long projectId,
             @PathVariable Long memberId,
-            @RequestBody InviteMemberRequest request
+            @RequestBody UpdateMemberRoleRequest request
     ) {
         Long userId = 1L;
         return ResponseEntity.ok(projectMemberService.updateMemberRole(projectId, memberId, request, userId));
     }
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> updateMemberRole(
+    public ResponseEntity<MemberResponse> deleteMember(
             @PathVariable Long projectId,
             @PathVariable Long memberId
     ) {

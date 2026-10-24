@@ -4,6 +4,7 @@ import com.adarshcodes.project.ai_driven_app_builder.dto.subscription.CheckoutRe
 import com.adarshcodes.project.ai_driven_app_builder.dto.subscription.CheckoutResponse;
 import com.adarshcodes.project.ai_driven_app_builder.dto.subscription.PortalResponse;
 import com.adarshcodes.project.ai_driven_app_builder.dto.subscription.SubscriptionResponse;
+import org.jspecify.annotations.Nullable;
 
 public interface SubscriptionService {
     SubscriptionResponse getCurrentSubscription(Long userId);
